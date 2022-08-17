@@ -20,7 +20,6 @@ extension OrderedSet {
     internal var _base: OrderedSet
 
     @inlinable
-    @inline(__always)
     internal init(_base: OrderedSet) {
       self._base = _base
     }
@@ -132,7 +131,6 @@ extension OrderedSet.UnorderedView: Hashable {
 extension OrderedSet.UnorderedView: ExpressibleByArrayLiteral {
   /// Creates a new unordered set from the contents of an array literal.
   @inlinable
-  @inline(__always)
   public init(arrayLiteral elements: Element...) {
     _base = OrderedSet(elements)
   }
@@ -146,7 +144,6 @@ extension OrderedSet.UnorderedView {
   /// This initializer is equivalent to initializing with an empty array
   /// literal.
   @inlinable
-  @inline(__always)
   public init() {
     _base = OrderedSet()
   }
@@ -160,7 +157,6 @@ extension OrderedSet.UnorderedView {
   ///    in the sequence), provided that `Element` implements
   ///    high-quality hashing.
   @inlinable
-  @inline(__always)
   public init<S: Sequence>(_ elements: S) where S.Element == Element {
     _base = OrderedSet(elements)
   }
@@ -188,7 +184,6 @@ extension OrderedSet.UnorderedView {
   ///    in the set), provided that `Element` implements high-quality
   ///    hashing.
   @inlinable
-  @inline(__always)
   public init(_ elements: Set<Element>) {
     self._base = OrderedSet(elements)
   }
@@ -202,7 +197,6 @@ extension OrderedSet.UnorderedView {
   ///    in the set), provided that `Element` implements high-quality
   ///    hashing.
   @inlinable
-  @inline(__always)
   public init<Value>(_ elements: Dictionary<Element, Value>.Keys) {
     self._base = OrderedSet(elements)
   }
